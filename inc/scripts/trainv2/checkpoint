@@ -1,0 +1,2 @@
+model_checkpoint_path: "path\\to\\immortal_xinofarmer\\inc\\scripts\\trainv2\\zavainGPU-0.001-alarviTest1.1-30-epochs.model"
+all_model_checkpoint_paths: "path\\to\\immortal_xinofarmer\\inc\\scripts\\trainv2\\zavainGPU-0.001-alarviTest1.1-30-epochs.model"

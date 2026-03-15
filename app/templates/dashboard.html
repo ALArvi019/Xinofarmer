@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XinoFarmer - Dashboard</title>
+    <meta name="description" content="XinoFarmer Bot Control Panel">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                </div>
+                <h1 class="logo-text">XinoFarmer</h1>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Bot Control</div>
+                <a href="#main" class="nav-item active" data-tab="main">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
+                    </svg>
+                    <span>Main</span>
+                </a>
+                <a href="#spotfarm" class="nav-item" data-tab="spotfarm">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                    <span>Spot Farm</span>
+                </a>
+                <a href="#dungeon" class="nav-item" data-tab="dungeon">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
+                    </svg>
+                    <span>Dungeon</span>
+                </a>
+                <a href="#fishing" class="nav-item" data-tab="fishing">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" />
+                    </svg>
+                    <span>Fishing</span>
+                </a>
+                <a href="#cyrangar" class="nav-item" data-tab="cyrangar">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l-5.5 9h11z" />
+                        <circle cx="17.5" cy="17.5" r="4.5" />
+                        <path d="M3 13.5h8v8H3z" />
+                    </svg>
+                    <span>Cyrangar</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Settings</div>
+                <a href="#emulator" class="nav-item" data-tab="emulator">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H3V4h18v10z" />
+                    </svg>
+                    <span>Emulator</span>
+                </a>
+                <a href="#telegram" class="nav-item" data-tab="telegram">
+                    <svg class="nav-item-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" />
+                    </svg>
+                    <span>Telegram</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">{{ username[0] | upper }}</div>
+                <div class="user-details">
+                    <div class="user-name" id="userName">{{ username }}</div>
+                    <div class="user-status">Expires: {{ left_time }}</div>
+                </div>
+                <button class="btn btn-ghost" id="logoutBtn" title="Logout">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path
+                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="main-header">
+            <h2 class="page-title" id="pageTitle">Dashboard</h2>
+            <div class="header-actions">
+                <span class="status-indicator status-stopped" id="botStatus">
+                    <span id="statusText">Stopped</span>
+                </span>
+                <span id="runningTime">00:00:00</span>
+            </div>
+        </header>
+
+        <div class="main-body">
+            <!-- Main Tab -->
+            <div class="tab-content active" id="tab-main">
+                <div class="grid grid-cols-2">
+                    <!-- Bot Control Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Bot Control</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Action</label>
+                                    <select class="form-select" id="actionSelect">
+                                        <option value="SpotFarm">Spot Farm</option>
+                                        <option value="Dungeon">Dungeon</option>
+                                        <option value="Fish2.0">Fish 2.0</option>
+                                        <option value="Fish">Fish (Legacy)</option>
+                                        <option value="Cyrangar">Cyrangar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Language</label>
+                                    <select class="form-select" id="languageSelect">
+                                        <option value="English">English</option>
+                                        <option value="Spanish">Spanish</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Player</label>
+                                    <select class="form-select" id="playerSelect">
+                                        <option value="1">Character 1</option>
+                                        <option value="2">Character 2</option>
+                                        <option value="3">Character 3</option>
+                                        <option value="4">Character 4</option>
+                                        <option value="5">Character 5</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="control-buttons">
+                                <button class="btn btn-success" id="startBtn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                    Start
+                                </button>
+                                <button class="btn btn-warning" id="pauseBtn" disabled>
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                                    </svg>
+                                    Pause
+                                </button>
+                                <button class="btn btn-danger" id="stopBtn" disabled>
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                        <path d="M6 6h12v12H6z" />
+                                    </svg>
+                                    Stop
+                                </button>
+                                <button class="btn btn-primary" id="saveBtn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                        <path
+                                            d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z" />
+                                    </svg>
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Emulator Settings Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Emulator Settings</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">Emulator Name (Window Title)</label>
+                                <input type="text" class="form-input" id="vmName" placeholder="LDPlayer"
+                                    value="{{ config.Main.VMName if config and config.Main else 'LDPlayer' }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">LDPlayer Path</label>
+                                <div class="input-wrapper">
+                                    <input type="text" class="form-input" id="ldPath"
+                                        placeholder="C:\LDPlayer\LDPlayer9\ldconsole.exe"
+                                        value="{{ config.Main.LDPath if config and config.Main else '' }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Log Console -->
+                <div class="card" style="margin-top: var(--spacing-lg);">
+                    <div class="card-header">
+                        <h3 class="card-title">Activity Log</h3>
+                        <button class="btn btn-ghost" id="clearLogsBtn">Clear</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="log-console" id="logConsole">
+                            <div class="log-entry">
+                                <span class="log-time">[--:--:--]</span>
+                                <span class="log-message">Waiting for bot to start...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SpotFarm Tab -->
+            <div class="tab-content" id="tab-spotfarm">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Spot Farm Settings</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Map</label>
+                                <select class="form-select" id="spotFarmMap">
+                                    <option value="Ashwold">Ashwold</option>
+                                    <option value="DarkWood">Dark Wood</option>
+                                    <option value="ShasarSea">Shassar Sea</option>
+                                    <option value="Library">Library</option>
+                                    <option value="Bilefen">Bilefen</option>
+                                    <option value="MountZavain">Mount Zavain</option>
+                                    <option value="FrozenTundra">Frozen Tundra</option>
+                                    <option value="RealmOfDamnation">Realm of Damnation</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm);">
+                            Select the map where you want to perform spot farming. The bot will automatically navigate
+                            to the best farming spots.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dungeon Tab -->
+            <div class="tab-content" id="tab-dungeon">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Dungeon Settings</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Dungeon</label>
+                                <select class="form-select" id="dungeonName">
+                                    <option value="MadKingsBreachNormal">Mad King's Breach (Normal)</option>
+                                    <option value="ForgottenTowerNormal">Forgotten Tower (Normal)</option>
+                                    <option value="TombOfFahirNormal">Tomb of Fahir (Normal)</option>
+                                    <option value="DestroyerEnd">Destroyer's End</option>
+                                    <option value="CaveOfEchoes">Cave of Echoes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Team Mode</label>
+                                <select class="form-select" id="dungeonTeamSolo">
+                                    <option value="Solo">Solo</option>
+                                    <option value="Team">Team</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Time to Exit (seconds)</label>
+                            <input type="number" class="form-input" id="dungeonTimeToExit" value="300" min="60"
+                                max="600">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fishing Tab -->
+            <div class="tab-content" id="tab-fishing">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Fishing Settings (v2.0)</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Fish Type</label>
+                                <select class="form-select" id="fishType">
+                                    <option value="Gold">Gold</option>
+                                    <option value="Blue">Blue</option>
+                                    <option value="Any">Any</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Map</label>
+                                <select class="form-select" id="fishMap">
+                                    <option value="Ashwold">Ashwold</option>
+                                    <option value="DarkWood">Dark Wood</option>
+                                    <option value="ShasarSea">Shassar Sea</option>
+                                    <option value="Bilefen">Bilefen</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Zone</label>
+                                <select class="form-select" id="fishZone">
+                                    <option value="Zone1">Zone 1</option>
+                                    <option value="Zone2">Zone 2</option>
+                                    <option value="Zone3">Zone 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Iterations Min</label>
+                                <input type="number" class="form-input" id="fishIterMin" value="3" min="1" max="15">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Iterations Max</label>
+                                <input type="number" class="form-input" id="fishIterMax" value="5" min="1" max="15">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cyrangar Tab -->
+            <div class="tab-content" id="tab-cyrangar">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Cyrangar Settings</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Mode</label>
+                                <select class="form-select" id="cyrangarMode">
+                                    <option value="EndlessFight">Endless Fight</option>
+                                    <option value="EnterAndExit">Enter and Exit</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Stay at Door</label>
+                                <select class="form-select" id="cyrangarStayAtDoor">
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Time to Exit (seconds)</label>
+                            <input type="number" class="form-input" id="cyrangarTimeToExit" value="180" min="60"
+                                max="600">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emulator Tab -->
+            <div class="tab-content" id="tab-emulator">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Emulator Configuration</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">Emulator Window Name</label>
+                            <input type="text" class="form-input" id="emulatorName" placeholder="LDPlayer"
+                                value="{{ config.Main.VMName if config and config.Main else 'LDPlayer' }}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">LDConsole Path</label>
+                            <input type="text" class="form-input" id="emulatorPath"
+                                placeholder="C:\LDPlayer\LDPlayer9\ldconsole.exe">
+                        </div>
+                        <p
+                            style="color: var(--color-text-secondary); font-size: var(--font-size-sm); margin-top: var(--spacing-md);">
+                            Make sure the emulator window name matches exactly the title of your LDPlayer window.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Telegram Tab -->
+            <div class="tab-content" id="tab-telegram">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Telegram Notifications</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">Enable Telegram</label>
+                            <select class="form-select" id="telegramActive">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="telegramTokenGroup" style="display: none;">
+                            <label class="form-label">Telegram Token</label>
+                            <input type="text" class="form-input" id="telegramToken"
+                                placeholder="Your Telegram Bot Token" readonly>
+                            <p
+                                style="color: var(--color-text-secondary); font-size: var(--font-size-sm); margin-top: var(--spacing-sm);">
+                                Contact your Telegram bot to get your token.
+                                See the README for setup instructions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize XinoFarmer Dashboard
+            const app = new XinoFarmerApp();
+            app.init();
+        });
+    </script>
+</body>
+
+</html>

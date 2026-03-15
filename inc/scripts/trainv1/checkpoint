@@ -1,0 +1,2 @@
+model_checkpoint_path: "path\\to\\immortal_xinofarmer\\inc\\scripts\\trainv1\\tundratestv1-0.001-googlenetv4-30-epochs.model"
+all_model_checkpoint_paths: "path\\to\\immortal_xinofarmer\\inc\\scripts\\trainv1\\tundratestv1-0.001-googlenetv4-30-epochs.model"

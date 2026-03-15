@@ -1,0 +1,1 @@
+pyinstaller --onefile --icon="./xf.ico" --upx-dir=./upx xf.py
